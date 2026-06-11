@@ -1,0 +1,21 @@
+[project]
+name = "rag-telecom-chatbot"
+version = "0.1.0"
+description = "RAG-based telecom customer care chatbot tutorial"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain",
+    "langchain-core",
+    "langchain-chroma",
+    "langchain-groq",
+    "langchain-huggingface",
+    "chromadb",
+    "sentence-transformers",
+    "pandas",
+    "python-dotenv",
+    "streamlit",
+    "fpdf2",
+    "pypdf",
+    "langchain-community",
+    "langchain-text-splitters",
+]
