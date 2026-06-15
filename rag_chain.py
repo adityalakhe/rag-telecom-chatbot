@@ -2,9 +2,8 @@
 Builds the RAG chain:
   merged retriever → prompt → Qwen3-32B on Groq → string output
 """
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
 from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 
@@ -40,6 +39,7 @@ def build_chain():
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", SYSTEM_PROMPT),
+        MessagesPlaceholder(variable_name="chat_history"),
         ("human", "{question}"),
     ])
 
@@ -53,7 +53,11 @@ def build_chain():
     )
 
     chain = (
-        {"context": retriever | _format_docs, "question": RunnablePassthrough()}
+        {
+            "context": (lambda x: x["question"]) | retriever | _format_docs,
+            "question": lambda x: x["question"],
+            "chat_history": lambda x: x["chat_history"],
+        }
         | prompt
         | llm
         | StrOutputParser()
