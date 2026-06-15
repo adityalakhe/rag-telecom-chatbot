@@ -34,9 +34,7 @@ rag-telecom-chatbot/
 ├── data/
 │   ├── faq.csv             # FAQ question/answer pairs
 │   ├── tickets.db          # SQLite database of resolved support tickets
-│   ├── telecom_guide.pdf   # Telecom user guide (chunked at ingest)
-│   ├── seed_tickets.py     # Script to seed the tickets database
-│   └── generate_pdf.py     # Script to generate the telecom guide PDF
+│   └── telecom_guide.pdf   # Telecom user guide (chunked at ingest)
 ├── chroma_store/       # Persisted Chroma vector database (created at ingest)
 ├── pyproject.toml
 ├── uv.lock
