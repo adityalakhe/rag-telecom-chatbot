@@ -113,6 +113,8 @@ Interactive prompt — type a question and press Enter. Type `quit` to exit.
 
 The retriever fetches the top 3 results from each collection (9 context documents total) for every query.
 
+Note: faq.csv, tickets.db, and telecom_guide.pdf are generated with synthetic data for demonstration purposes. Replace them with real data before production use.
+
 ## Regenerating Seed Data
 
 ```bash
