@@ -105,24 +105,12 @@ Interactive prompt — type a question and press Enter. Type `quit` to exit.
 
 ## Data Sources
 
-| Collection | Source file | Granularity |
+The `data/` folder contains the knowledge base used by the RAG pipeline:
+
+| File | Type | Description |
 |---|---|---|
-| `faq` | `data/faq.csv` | 1 document per FAQ row |
-| `tickets` | `data/tickets.db` | 1 document per resolved ticket |
-| `guides` | `data/telecom_guide.pdf` | Chunks of 600 chars with 100-char overlap |
+| `faq.csv` | FAQ entries | Common telecom questions and answers |
+| `telecom_guide.pdf` | PDF guide | Policy and how-to documentation |
+| `tickets.db` | SQLite database | Past resolved support tickets |
 
-The retriever fetches the top 3 results from each collection (9 context documents total) for every query.
-
-Note: faq.csv, tickets.db, and telecom_guide.pdf are generated with synthetic data for demonstration purposes. Replace them with real data before production use.
-
-## Regenerating Seed Data
-
-```bash
-# Seed the SQLite ticket database
-python data/seed_tickets.py
-
-# Regenerate the PDF guide
-python data/generate_pdf.py
-```
-
-After regenerating, re-run the corresponding ingest script.
+> Note: These files contain synthetic data for demo purposes. Replace with real data before production use.
