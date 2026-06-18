@@ -99,7 +99,7 @@ Opens at `http://localhost:8501`. The sidebar has one-click sample questions and
 python main.py
 ```
 
-Interactive prompt — type a question and press Enter. Type `quit` to exit.
+Interactive prompt - type a question and press Enter. Type `quit` to exit.
 
 ## Data Sources
 
